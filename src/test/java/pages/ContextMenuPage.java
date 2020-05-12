@@ -17,7 +17,7 @@ public class ContextMenuPage extends BasePage {
         driver.get(CONTEXT_MENU_PAGE_URL);
     }
 
-    public void verifyAlertClick() {
+    public void rightClick() {
         WebElement rightClickAction = driver.findElement(BOX_ELEMENT);
         actions.contextClick(rightClickAction).build().perform();
     }

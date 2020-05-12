@@ -20,8 +20,19 @@ public class AlertPage extends BasePage {
         driver.get(JS_ALERTS_URL);
     }
 
-    public void validateJSAlert(String resultText) {
+    public void clickJSAlert(){
         driver.findElement(JS_ALERT_BUTTON).click();
+    }
+
+    public void clickJSConfirmAlert(){
+        driver.findElement(JS_CONFIRM_BUTTON).click();
+    }
+
+    public void clickJSPromptAlert(){
+        driver.findElement(JS_PROMPT_BUTTON).click();
+    }
+
+    public void validateJSAlert(String resultText) {
         Alert alert = driver.switchTo().alert();
         alert.accept();
         String actualText = driver.findElement(JS_RESULT).getText();
@@ -29,7 +40,6 @@ public class AlertPage extends BasePage {
     }
 
     public void validateJSConfirmAlert(String resultText) {
-        driver.findElement(JS_CONFIRM_BUTTON).click();
         Alert alert = driver.switchTo().alert();
         alert.accept();
         String actualText = driver.findElement(JS_RESULT).getText();
@@ -37,7 +47,6 @@ public class AlertPage extends BasePage {
     }
 
     public void validateJSPromptAlert(String inputMessage, String resultText) {
-        driver.findElement(JS_PROMPT_BUTTON).click();
         Alert alert = driver.switchTo().alert();
         alert.sendKeys(inputMessage);
         alert.accept();
